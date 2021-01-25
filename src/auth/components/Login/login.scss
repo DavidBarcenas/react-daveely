@@ -1,3 +1,89 @@
-img {
-  width: 60px;
+.login {
+  overflow: hidden;
+}
+
+.login-container {
+  width: 90%;
+  height: 100vh;
+  margin: auto;
+  overflow-y: auto;
+
+  @media screen and (max-width: 360px) {
+    padding: 2em 0;
+  }
+}
+
+.login-wrap {
+  text-align: center;
+
+  .login-logo {
+    width: 55px;
+    margin: auto;
+  }
+  .login-title {
+    font-size: 2em;
+    margin: 0;
+  }
+  .login-welcome {
+    font-weight: 500;
+    font-size: 1.3em;
+    margin-bottom: 0;
+  }
+
+  .login-form {
+    width: 100%;
+
+    &-input {
+      width: 100%;
+      margin-bottom: 1em;
+    }
+
+    &-forgot {
+      display: block;
+      text-align: right;
+      font-size: 0.9em;
+    }
+
+    &-btn {
+      display: block;
+      width: 100%;
+      margin: 1.25em 0;
+      line-height: 30px;
+    }
+  }
+}
+
+.login-social-text {
+  display: block;
+  font-size: 0.9em;
+  margin-top: 2em;
+}
+
+.login-social {
+  display: block;
+  margin: 1em auto 2em;
+
+  button {
+    width: 50px;
+    height: 50px;
+
+    &:nth-of-type(2) {
+      margin: 0 0.5em;
+    }
+  }
+
+  button img {
+    width: 30px;
+  }
+}
+
+.register-text {
+  font-size: 0.9em;
+  span {
+    color: blue;
+  }
+}
+
+.login-bg {
+  display: none;
 }
