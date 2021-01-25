@@ -1,7 +1,10 @@
-function App() {
+import React from 'react';
+import Login from './auth/components/Login';
+
+function App(): JSX.Element {
   return (
     <div className="App">
-      <h1>Daveely</h1>
+      <Login />
     </div>
   );
 }
