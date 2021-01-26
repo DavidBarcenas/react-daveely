@@ -22,12 +22,12 @@ const Login: React.FC = () => {
           <form className="login-form">
             <TextField
               type="text"
-              label="Correo electrónico"
               variant="outlined"
+              placeholder="Correo electrónico"
               className="login-form-input"
               InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
+                startAdornment: (
+                  <InputAdornment position="start">
                     <EmailSharp />
                   </InputAdornment>
                 ),
@@ -35,18 +35,19 @@ const Login: React.FC = () => {
             />
             <TextField
               type="password"
-              label="Contraseña"
               variant="outlined"
+              placeholder="Contraseña"
               className="login-form-input"
               InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
+                startAdornment: (
+                  <InputAdornment position="start">
                     <LockSharp />
                   </InputAdornment>
                 ),
               }}
             />
             <span className="login-form-forgot">¿Olvidaste tu contraseña?</span>
+
             <Button
               type="submit"
               variant="contained"
@@ -56,7 +57,8 @@ const Login: React.FC = () => {
               Ingresar
             </Button>
           </form>
-          <span className="login-social-text">o puedes ingresar con:</span>
+
+          <span className="login-social-text">o puedes ingresar con</span>
           <div className="login-social">
             <Button variant="outlined">
               <img src={google} alt="Ingresar con google" />
