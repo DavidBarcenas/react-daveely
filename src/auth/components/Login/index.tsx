@@ -15,7 +15,7 @@ const Login: React.FC = () => {
           <img src={logo} alt="daveely" className="login-logo" />
           <h1 className="login-title">Daveely.</h1>
           <h2 className="login-welcome">¡Bienvenido de nuevo!</h2>
-          <p>
+          <p className="login-copy">
             Para seguir planeando, administrando y creando metas, ingresa con
             tus datos de acceso.
           </p>
@@ -56,7 +56,7 @@ const Login: React.FC = () => {
               Ingresar
             </Button>
           </form>
-          <span className="login-social-text">O puedes ingresar con:</span>
+          <span className="login-social-text">o puedes ingresar con:</span>
           <div className="login-social">
             <Button variant="outlined">
               <img src={google} alt="Ingresar con google" />

@@ -1,3 +1,5 @@
+@import '../../../scss/vars';
+
 .login {
   overflow: hidden;
 }
@@ -8,7 +10,7 @@
   margin: auto;
   overflow-y: auto;
 
-  @media screen and (max-width: 360px) {
+  @include mq(xs) {
     padding: 2em 0;
   }
 }
@@ -26,8 +28,12 @@
   }
   .login-welcome {
     font-weight: 500;
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin-bottom: 0;
+  }
+  .login-copy {
+    margin-top: 0.5em;
+    margin-bottom: 2em;
   }
 
   .login-form {
@@ -56,12 +62,13 @@
 .login-social-text {
   display: block;
   font-size: 0.9em;
-  margin-top: 2em;
+  margin-top: 3em;
+  margin-bottom: 2em;
 }
 
 .login-social {
   display: block;
-  margin: 1em auto 2em;
+  margin-bottom: 3em;
 
   button {
     width: 50px;
@@ -80,7 +87,7 @@
 .register-text {
   font-size: 0.9em;
   span {
-    color: blue;
+    color: $primary-color;
   }
 }
 
