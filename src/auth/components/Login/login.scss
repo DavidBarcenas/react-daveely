@@ -2,6 +2,7 @@
 
 .login {
   overflow: hidden;
+  display: flex;
 
   &-container {
     width: 90%;
@@ -12,11 +13,19 @@
     @include mq(xs) {
       padding: 2em 0;
     }
+
+    @include mq(md) {
+      max-width: 50%;
+    }
   }
 }
 
 .login-wrap {
   text-align: center;
+
+  @include mq(sm) {
+    max-width: 450px;
+  }
 
   .login-logo {
     width: 55px;
@@ -26,7 +35,7 @@
   .login-title {
     font-size: 2em;
     margin: 0;
-    margin-bottom: 0.75em;
+    margin-bottom: 0.5em;
   }
 
   .login-welcome {
@@ -78,6 +87,10 @@
   margin-bottom: 2.5em;
   position: relative;
 
+  @include mq(md) {
+    margin-top: 2em;
+  }
+
   &:before,
   &:after {
     content: '';
@@ -89,6 +102,10 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+
+    @include mq(md) {
+      width: 30%;
+    }
   }
 
   &:after {
@@ -125,4 +142,11 @@
 
 .login-bg {
   display: none;
+  background: $primary-color;
+
+  @include mq(md) {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
 }

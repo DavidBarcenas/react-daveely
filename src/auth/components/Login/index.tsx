@@ -75,7 +75,7 @@ const Login: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="login-bg"></div>
+      <div className="login-bg "></div>
     </section>
   );
 };
