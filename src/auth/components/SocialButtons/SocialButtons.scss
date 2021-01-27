@@ -1,0 +1,64 @@
+@import '../../../scss/vars';
+
+.social-buttons {
+  text-align: center;
+}
+.social-buttons-text {
+  display: block;
+  font-size: 0.9em;
+  margin-top: 3em;
+  margin-bottom: 2.5em;
+  position: relative;
+
+  @include mq(md) {
+    margin-top: 2em;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    display: inline-block;
+    background-color: $grey;
+    width: 25%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    @include mq(md) {
+      width: 30%;
+    }
+  }
+
+  &:after {
+    left: auto;
+    right: 0;
+  }
+}
+
+.social-buttons-wrap {
+  display: block;
+  margin-bottom: 2em;
+
+  button {
+    width: 60px;
+    height: 60px;
+
+    &:nth-of-type(2) {
+      margin: 0 0.75em;
+    }
+  }
+
+  button img {
+    width: 30px;
+  }
+}
+
+.register-text {
+  font-size: 0.9em;
+
+  span {
+    color: $secondary-color;
+  }
+}
