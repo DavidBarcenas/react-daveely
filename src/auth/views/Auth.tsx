@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from '../components/Login';
 import logoImg from '../../assets/img/logo.svg';
 import './Auth.scss';
 
@@ -7,8 +8,9 @@ export const Auth: React.FC = () => {
     <section className="auth">
       <div className="auth-login flex-center">
         <div className="auth-login-wrap">
-          <img src={logoImg} alt="daveely" className="login-logo" />
-          <h1 className="login-logo-text">Daveely.</h1>
+          <img src={logoImg} alt="daveely" className="auth-logo" />
+          <h1 className="auth-logo-text">Daveely.</h1>
+          <Login />
         </div>
       </div>
       <div className="auth-bg"></div>

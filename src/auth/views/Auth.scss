@@ -3,6 +3,18 @@
 .auth {
   display: flex;
   overflow: hidden;
+
+  &-logo {
+    width: 55px;
+    margin: auto;
+  }
+
+  &-logo-text {
+    font-size: 2em;
+    margin: 0;
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
 }
 
 .auth-login {
