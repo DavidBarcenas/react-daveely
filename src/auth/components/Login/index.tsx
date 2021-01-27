@@ -5,7 +5,7 @@ import logo from '../../../assets/img/logo.svg';
 import google from '../../../assets/img/google.svg';
 import twitter from '../../../assets/img/twitter.svg';
 import github from '../../../assets/img/github.svg';
-import './login.scss';
+import './Login.scss';
 
 const Login: React.FC = () => {
   return (
