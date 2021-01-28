@@ -4,6 +4,14 @@
   display: flex;
   overflow: hidden;
 
+  &-wrap {
+    text-align: center;
+
+    @include mq(sm) {
+      max-width: 450px;
+    }
+  }
+
   &-logo {
     width: 55px;
     margin: auto;
@@ -14,6 +22,17 @@
     margin: 0;
     margin-bottom: 0.5em;
     text-align: center;
+  }
+
+  &-welcome {
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-bottom: 0;
+  }
+
+  &-copy {
+    margin-top: 0.5em;
+    margin-bottom: 2em;
   }
 }
 
@@ -57,14 +76,50 @@
 }
 
 .auth-login-register {
+  display: block;
   font-size: 0.9em;
   text-align: center;
   span {
     color: $secondary-color;
     cursor: pointer;
+    margin-left: 8px;
 
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+.auth-register-text {
+  margin-top: 2.5em;
+}
+
+.auth-form {
+  width: 100%;
+
+  .MuiFormControl-root {
+    width: 100%;
+    margin-bottom: 1.25em;
+  }
+
+  .auth-form-input-psswd {
+    margin-bottom: 0.75em;
+  }
+
+  .MuiSvgIcon-root {
+    color: $grey;
+  }
+
+  &-forgot {
+    display: block;
+    text-align: right;
+    font-size: 0.9em;
+    margin-bottom: 1.25em;
+  }
+
+  .MuiButton-containedPrimary {
+    display: block;
+    width: 100%;
+    line-height: 35px;
   }
 }

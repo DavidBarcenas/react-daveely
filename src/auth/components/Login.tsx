@@ -1,22 +1,22 @@
 import React from 'react';
+import SocialButtons from './SocialButtons';
 import { Button, InputAdornment, TextField } from '@material-ui/core';
 import { EmailSharp, LockSharp } from '@material-ui/icons';
-import './Login.scss';
 
 const Login: React.FC = () => {
   return (
-    <div className="login">
-      <p className="login-welcome">¡Bienvenido de nuevo!</p>
-      <p className="login-copy">
+    <div className="auth-wrap">
+      <p className="auth-welcome">¡Bienvenido de nuevo!</p>
+      <p className="auth-copy">
         Para seguir planeando, administrando y creando metas, ingresa con tus
         datos de acceso.
       </p>
-      <form className="login-form">
+      <form className="auth-form">
         <TextField
-          type="text"
+          type="email"
           variant="outlined"
           placeholder="Correo electrónico"
-          className="login-form-input"
+          className="auth-form-input"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -29,7 +29,7 @@ const Login: React.FC = () => {
           type="password"
           variant="outlined"
           placeholder="Contraseña"
-          className="login-form-input"
+          className="auth-form-input-psswd"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -38,17 +38,19 @@ const Login: React.FC = () => {
             ),
           }}
         />
-        <span className="login-form-forgot">¿Olvidaste tu contraseña?</span>
+        <span className="auth-form-forgot">¿Olvidaste tu contraseña?</span>
 
         <Button
           type="submit"
           variant="contained"
           color="primary"
-          className="login-form-btn"
+          className="auth-form-btn"
         >
           Ingresar
         </Button>
       </form>
+
+      <SocialButtons />
     </div>
   );
 };
