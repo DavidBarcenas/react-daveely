@@ -55,3 +55,16 @@
     width: 50%;
   }
 }
+
+.auth-login-register {
+  font-size: 0.9em;
+  text-align: center;
+  span {
+    color: $secondary-color;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

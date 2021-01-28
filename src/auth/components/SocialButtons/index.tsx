@@ -20,9 +20,6 @@ export const SocialButtons: React.FC = () => {
           <img src={githubIcon} alt="Ingresar con github" />
         </Button>
       </div>
-      <p className="register-text">
-        ¿No tienes una cuenta? <span>Registrate</span>
-      </p>
     </div>
   );
 };
