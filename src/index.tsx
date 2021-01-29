@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from './layout';
+import DaveelyTheme from './theme';
 import reportWebVitals from './reportWebVitals';
 import './scss/index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Layout />
+    <DaveelyTheme />
   </React.StrictMode>,
   document.getElementById('root')
 );

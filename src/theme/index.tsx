@@ -17,7 +17,7 @@ const theme = createMuiTheme({
   },
 });
 
-function Layout(): JSX.Element {
+function DaveelyTheme(): JSX.Element {
   return (
     <ThemeProvider theme={theme}>
       <Auth />
@@ -25,4 +25,4 @@ function Layout(): JSX.Element {
   );
 }
 
-export default Layout;
+export default DaveelyTheme;
