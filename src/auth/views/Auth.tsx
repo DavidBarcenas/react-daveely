@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import Login from '../components/Login';
 import Register from '../components/Register';
-import SocialButtons from '../components/SocialButtons';
 import logoImg from '../../assets/img/logo.svg';
+import {
+  HAS_AN_ACCOUNT,
+  LOG_IN,
+  NOT_ACCOUNT,
+  SIGN_IN,
+  TITLE,
+} from '../constants';
 import './Auth.scss';
 
 export const Auth: React.FC = () => {
@@ -13,17 +19,17 @@ export const Auth: React.FC = () => {
       <div className="auth-login flex-center">
         <div className="auth-login-wrap">
           <img src={logoImg} alt="daveely" className="auth-logo" />
-          <h1 className="auth-logo-text">Daveely.</h1>
+          <h1 className="auth-logo-text">{TITLE}</h1>
           {showLogin ? <Login /> : <Register />}
           {showLogin ? (
             <p className="auth-login-register">
-              ¿No tienes una cuenta?
-              <span onClick={() => setShowLogin(false)}>Registrate</span>
+              {NOT_ACCOUNT}
+              <span onClick={() => setShowLogin(false)}>{SIGN_IN}</span>
             </p>
           ) : (
             <p className="auth-login-register auth-register-text">
-              ¿Ya tienes una cuenta?
-              <span onClick={() => setShowLogin(true)}>Ingresar</span>
+              {HAS_AN_ACCOUNT}
+              <span onClick={() => setShowLogin(true)}>{LOG_IN}</span>
             </p>
           )}
         </div>
