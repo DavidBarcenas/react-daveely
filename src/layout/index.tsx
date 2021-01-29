@@ -1,5 +1,5 @@
 import React from 'react';
-import Auth from './auth/views/Auth';
+import Auth from '../auth/views/Auth';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
@@ -17,7 +17,7 @@ const theme = createMuiTheme({
   },
 });
 
-function App(): JSX.Element {
+function Layout(): JSX.Element {
   return (
     <ThemeProvider theme={theme}>
       <Auth />
@@ -25,4 +25,4 @@ function App(): JSX.Element {
   );
 }
 
-export default App;
+export default Layout;
