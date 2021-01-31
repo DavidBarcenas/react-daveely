@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from '../../shared/hooks/useForm';
 import { Button, InputAdornment, TextField } from '@material-ui/core';
 import { EmailSharp, LockSharp, Person } from '@material-ui/icons';
 import { REGISTER_BTN, REGISTER_COPY, REGISTER_WELCOME } from '../constants';
+import { emailValidation, nameValidation } from '../utils/validators';
+
+interface prueba {
+  name: string;
+  email: string;
+  pssd: string;
+  pssdRepeat: string;
+}
 
 export const Register: React.FC = () => {
   const [formData, handleFormChange, reset] = useForm({
@@ -11,10 +19,25 @@ export const Register: React.FC = () => {
     pssd: '',
     pssdRepeat: '',
   });
+  const [formError, setformError] = useState({
+    name: false,
+    email: true,
+    pssd: true,
+    pssdRepeat: true,
+  });
+
+  const validateForm = (): boolean => {
+    setformError({
+      ...formError,
+      name: nameValidation(formData.name) ? true : false,
+    });
+    const validForm = Object.values(formError).includes(false);
+    return !validForm;
+  };
 
   const handleSubmit = (e: any): void => {
     e.preventDefault();
-    console.log(formData);
+    console.log('El form valid ', validateForm());
   };
 
   return (
@@ -34,6 +57,7 @@ export const Register: React.FC = () => {
           variant="outlined"
           placeholder="Nombre"
           className="auth-form-input"
+          error={formError.name}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

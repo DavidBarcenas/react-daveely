@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useForm: TUseForm = (initialState = {}) => {
+export const useForm: UseFormProps = (initialState: IUseFormValues = {}) => {
   const [values, setValues] = useState(initialState);
 
   const reset = (): void => {
@@ -21,8 +21,12 @@ interface IHandleFormChange {
   target: any;
 }
 
-type TUseForm = (initialState: {}) => [
-  {},
+interface IUseFormValues {
+  [key: string]: string;
+}
+
+type UseFormProps = (initialState: {}) => [
+  IUseFormValues,
   ({ target }: IHandleFormChange) => void,
-  () => any
+  () => void
 ];
