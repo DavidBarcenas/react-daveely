@@ -16,3 +16,12 @@ export const AUTH_SOCIAL = 'o puedes ingresar con';
 export const AUTH_SOCIAL_GOOGLE = 'Ingresar con google';
 export const AUTH_SOCIAL_TWITTER = 'Ingresar con twitter';
 export const AUTH_SOCIAL_GITHUB = 'Ingresar con github';
+export const AUTH_VALIDATOR_REQUIRED = 'El campo es requerido';
+export const AUTH_VALIDATOR_ONLY_LETTERS = 'Solo se permiten letras';
+export const AUTH_VALIDATOR_EMAIL = 'Ingrese un correo válido';
+export const AUTH_VALIDATOR_PSSD_REPEAT = 'Las contraseñas no coinciden';
+export const AUTH_VALIDATOR_PSSD_MIN =
+  'El campo debe tener mínimo 6 caracteres';
+export const AUTH_VALIDATOR_NAME_MIN =
+  'El campo debe tener mínimo 3 caracteres';
+export const AUTH_VALIDATOR_EMPTY = '';

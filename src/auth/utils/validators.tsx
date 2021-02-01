@@ -1,43 +1,53 @@
+import {
+  AUTH_VALIDATOR_EMAIL,
+  AUTH_VALIDATOR_EMPTY,
+  AUTH_VALIDATOR_NAME_MIN,
+  AUTH_VALIDATOR_ONLY_LETTERS,
+  AUTH_VALIDATOR_PSSD_MIN,
+  AUTH_VALIDATOR_PSSD_REPEAT,
+  AUTH_VALIDATOR_REQUIRED,
+} from '../constants';
+
 export function nameValidation(name: string): string {
   const regex = /[^a-zA-Z -]/;
-  if (name.trim() === '') {
-    return 'el campo es requerido';
+  if (name.trim() === AUTH_VALIDATOR_EMPTY) {
+    return AUTH_VALIDATOR_REQUIRED;
   } else if (regex.test(name)) {
-    return 'Solo se permiten letras';
+    return AUTH_VALIDATOR_ONLY_LETTERS;
   } else if (name.trim().length < 3) {
-    return 'El campo debe tener mínimo 3 caracteres';
+    return AUTH_VALIDATOR_NAME_MIN;
   } else {
-    return '';
+    return AUTH_VALIDATOR_EMPTY;
   }
 }
 
 export function emailValidation(email: string): string {
   const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (regex.test(String(email).toLowerCase())) {
-    return '';
-  } else if (email.trim() === '') {
-    return 'El campo es requerido';
+    return AUTH_VALIDATOR_EMPTY;
+  } else if (email.trim() === AUTH_VALIDATOR_EMPTY) {
+    return AUTH_VALIDATOR_REQUIRED;
   } else {
-    return 'Ingrese un email válido';
+    return AUTH_VALIDATOR_EMAIL;
   }
 }
 
 export function pssdValidation(pssd: string): string {
-  if (pssd.trim() === '') {
-    return 'el campo es requerido';
+  if (pssd.trim() === AUTH_VALIDATOR_EMPTY) {
+    return AUTH_VALIDATOR_REQUIRED;
   } else if (pssd.length < 6) {
-    return 'el campo debe tener minimo 6 caracteres';
+    return AUTH_VALIDATOR_PSSD_MIN;
   } else {
-    return '';
+    return AUTH_VALIDATOR_EMPTY;
   }
 }
 
 export function pssdRepeatValidation(pssd: string, pssdRepeat: string): string {
-  if (pssd.trim() === '') {
-    return 'el campo es requerido';
+  if (pssd.trim() === AUTH_VALIDATOR_EMPTY) {
+    return AUTH_VALIDATOR_REQUIRED;
   } else if (pssd !== pssdRepeat) {
-    return 'Las contraseñas no coinciden';
+    return AUTH_VALIDATOR_PSSD_REPEAT;
   } else {
-    return '';
+    return AUTH_VALIDATOR_EMPTY;
   }
 }

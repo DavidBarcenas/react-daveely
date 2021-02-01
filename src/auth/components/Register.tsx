@@ -11,7 +11,7 @@ import {
 } from '../utils/validators';
 
 export const Register: React.FC = () => {
-  const [formData, handleFormChange, reset] = useForm({
+  const [formData, handleFormChange] = useForm({
     name: '',
     email: '',
     pssd: '',
@@ -48,31 +48,37 @@ export const Register: React.FC = () => {
 
     setFormError({
       name: {
-        error: nameError === '' ? false : true,
+        error: nameError !== '',
         message: nameError,
       },
       email: {
-        error: emailError === '' ? false : true,
+        error: emailError !== '',
         message: emailError,
       },
       pssd: {
-        error: pssdError === '' ? false : true,
-        message: emailError,
+        error: pssdError !== '',
+        message: pssdError,
       },
       pssdRepeat: {
-        error: pssdRepeatError === '' ? false : true,
+        error: pssdRepeatError !== '',
         message: pssdRepeatError,
       },
     });
-    // const validForm = Object.values(formError).filter((err) => err !== '');
-    // return validForm.length === 0;
+
+    if (
+      nameError !== '' ||
+      emailError !== '' ||
+      pssdError !== '' ||
+      pssdRepeatError !== ''
+    ) {
+      return false;
+    }
     return true;
   };
 
   const handleSubmit = (e: any): void => {
     e.preventDefault();
-    validateForm();
-    console.log('El form valid ', formError.name.message !== '');
+    console.log('formValid', validateForm());
   };
 
   return (
