@@ -78,7 +78,8 @@ export const Register: React.FC = () => {
 
   const handleSubmit = (e: any): void => {
     e.preventDefault();
-    console.log('formValid', validateForm());
+    // console.log('formValid', validateForm());
+    console.log(formData.pssd);
   };
 
   return (
