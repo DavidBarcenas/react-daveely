@@ -3,14 +3,12 @@ import { useForm } from '../../shared/hooks/useForm';
 import { Button, InputAdornment, TextField } from '@material-ui/core';
 import { EmailSharp, LockSharp, Person } from '@material-ui/icons';
 import { REGISTER_BTN, REGISTER_COPY, REGISTER_WELCOME } from '../constants';
-import { emailValidation, nameValidation } from '../utils/validators';
-
-interface prueba {
-  name: string;
-  email: string;
-  pssd: string;
-  pssdRepeat: string;
-}
+import {
+  emailValidation,
+  nameValidation,
+  pssdRepeatValidation,
+  pssdValidation,
+} from '../utils/validators';
 
 export const Register: React.FC = () => {
   const [formData, handleFormChange, reset] = useForm({
@@ -19,25 +17,62 @@ export const Register: React.FC = () => {
     pssd: '',
     pssdRepeat: '',
   });
-  const [formError, setformError] = useState({
-    name: false,
-    email: true,
-    pssd: true,
-    pssdRepeat: true,
+
+  const [formError, setFormError] = useState({
+    name: {
+      error: false,
+      message: '',
+    },
+    email: {
+      error: false,
+      message: '',
+    },
+    pssd: {
+      error: false,
+      message: '',
+    },
+    pssdRepeat: {
+      error: false,
+      message: '',
+    },
   });
 
   const validateForm = (): boolean => {
-    setformError({
-      ...formError,
-      name: nameValidation(formData.name) ? true : false,
+    const nameError = nameValidation(formData.name);
+    const emailError = emailValidation(formData.email);
+    const pssdError = pssdValidation(formData.pssd);
+    const pssdRepeatError = pssdRepeatValidation(
+      formData.pssd,
+      formData.pssdRepeat
+    );
+
+    setFormError({
+      name: {
+        error: nameError === '' ? false : true,
+        message: nameError,
+      },
+      email: {
+        error: emailError === '' ? false : true,
+        message: emailError,
+      },
+      pssd: {
+        error: pssdError === '' ? false : true,
+        message: emailError,
+      },
+      pssdRepeat: {
+        error: pssdRepeatError === '' ? false : true,
+        message: pssdRepeatError,
+      },
     });
-    const validForm = Object.values(formError).includes(false);
-    return !validForm;
+    // const validForm = Object.values(formError).filter((err) => err !== '');
+    // return validForm.length === 0;
+    return true;
   };
 
   const handleSubmit = (e: any): void => {
     e.preventDefault();
-    console.log('El form valid ', validateForm());
+    validateForm();
+    console.log('El form valid ', formError.name.message !== '');
   };
 
   return (
@@ -57,7 +92,8 @@ export const Register: React.FC = () => {
           variant="outlined"
           placeholder="Nombre"
           className="auth-form-input"
-          error={formError.name}
+          error={formError.name.error}
+          helperText={formError.name.message}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -72,6 +108,8 @@ export const Register: React.FC = () => {
           variant="outlined"
           placeholder="Correo electrónico"
           className="auth-form-input"
+          error={formError.email.error}
+          helperText={formError.email.message}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -86,6 +124,8 @@ export const Register: React.FC = () => {
           variant="outlined"
           placeholder="Contraseña"
           className="auth-form-input"
+          error={formError.pssd.error}
+          helperText={formError.pssd.message}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -100,6 +140,8 @@ export const Register: React.FC = () => {
           variant="outlined"
           placeholder="Repetir Contraseña"
           className="auth-form-input"
+          error={formError.pssdRepeat.error}
+          helperText={formError.pssdRepeat.message}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
