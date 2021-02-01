@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { useForm } from '../../shared/hooks/useForm';
 import { Button, InputAdornment, TextField } from '@material-ui/core';
-import { EmailSharp, LockSharp, Person } from '@material-ui/icons';
 import { REGISTER_BTN, REGISTER_COPY, REGISTER_WELCOME } from '../constants';
+import {
+  EmailSharp,
+  LockSharp,
+  Person,
+  Visibility,
+  VisibilityOff,
+} from '@material-ui/icons';
 import {
   emailValidation,
   nameValidation,
@@ -11,6 +17,7 @@ import {
 } from '../utils/validators';
 
 export const Register: React.FC = () => {
+  const [showPssd, setShowPssd] = useState(false);
   const [formData, handleFormChange] = useForm({
     name: '',
     email: '',
@@ -78,8 +85,9 @@ export const Register: React.FC = () => {
 
   const handleSubmit = (e: any): void => {
     e.preventDefault();
-    // console.log('formValid', validateForm());
-    console.log(formData.pssd);
+    if (validateForm()) {
+      console.log(formData);
+    }
   };
 
   return (
@@ -88,6 +96,7 @@ export const Register: React.FC = () => {
       <p className="auth-copy">{REGISTER_COPY}</p>
 
       <form
+        noValidate
         onSubmit={handleSubmit}
         onChange={handleFormChange}
         className="auth-form"
@@ -126,7 +135,7 @@ export const Register: React.FC = () => {
           }}
         />
         <TextField
-          type="password"
+          type={showPssd ? 'text' : 'password'}
           name="pssd"
           variant="outlined"
           placeholder="Contraseña"
@@ -139,10 +148,18 @@ export const Register: React.FC = () => {
                 <LockSharp />
               </InputAdornment>
             ),
+            endAdornment: (
+              <InputAdornment
+                position="end"
+                onClick={() => setShowPssd(!showPssd)}
+              >
+                {showPssd ? <VisibilityOff /> : <Visibility />}
+              </InputAdornment>
+            ),
           }}
         />
         <TextField
-          type="password"
+          type={showPssd ? 'text' : 'password'}
           name="pssdRepeat"
           variant="outlined"
           placeholder="Repetir Contraseña"
@@ -153,6 +170,14 @@ export const Register: React.FC = () => {
             startAdornment: (
               <InputAdornment position="start">
                 <LockSharp />
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment
+                position="end"
+                onClick={() => setShowPssd(!showPssd)}
+              >
+                {showPssd ? <VisibilityOff /> : <Visibility />}
               </InputAdornment>
             ),
           }}
