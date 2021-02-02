@@ -16,6 +16,11 @@ import {
   pssdValidation,
 } from '../utils/validators';
 
+const formErrorProps = {
+  error: false,
+  message: '',
+};
+
 export const Register: React.FC = () => {
   const [showPssd, setShowPssd] = useState(false);
   const [formData, handleFormChange] = useForm({
@@ -26,58 +31,45 @@ export const Register: React.FC = () => {
   });
 
   const [formError, setFormError] = useState({
-    name: {
-      error: false,
-      message: '',
-    },
-    email: {
-      error: false,
-      message: '',
-    },
-    pssd: {
-      error: false,
-      message: '',
-    },
-    pssdRepeat: {
-      error: false,
-      message: '',
-    },
+    name: formErrorProps,
+    email: formErrorProps,
+    pssd: formErrorProps,
+    pssdRepeat: formErrorProps,
   });
 
   const validateForm = (): boolean => {
-    const nameError = nameValidation(formData.name);
-    const emailError = emailValidation(formData.email);
-    const pssdError = pssdValidation(formData.pssd);
-    const pssdRepeatError = pssdRepeatValidation(
+    const nameError: string = nameValidation(formData.name);
+    const emailError: string = emailValidation(formData.email);
+    const pssdError: string = pssdValidation(formData.pssd);
+    const pssdRepeatError: string = pssdRepeatValidation(
       formData.pssd,
       formData.pssdRepeat
     );
+    const nameHasError: boolean = nameError !== '';
+    const emailHasError: boolean = emailError !== '';
+    const pssdHasError: boolean = pssdError !== '';
+    const pssdRepeatHasError: boolean = pssdRepeatError !== '';
 
     setFormError({
       name: {
-        error: nameError !== '',
+        error: nameHasError,
         message: nameError,
       },
       email: {
-        error: emailError !== '',
+        error: emailHasError,
         message: emailError,
       },
       pssd: {
-        error: pssdError !== '',
+        error: pssdHasError,
         message: pssdError,
       },
       pssdRepeat: {
-        error: pssdRepeatError !== '',
+        error: pssdRepeatHasError,
         message: pssdRepeatError,
       },
     });
 
-    if (
-      nameError !== '' ||
-      emailError !== '' ||
-      pssdError !== '' ||
-      pssdRepeatError !== ''
-    ) {
+    if (nameHasError || emailHasError || pssdHasError || pssdRepeatHasError) {
       return false;
     }
     return true;
