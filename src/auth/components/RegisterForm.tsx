@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useForm } from '../../shared/hooks/useForm';
-import { Button, InputAdornment, TextField } from '@material-ui/core';
-import { REGISTER_BTN, REGISTER_COPY, REGISTER_WELCOME } from '../constants';
+import { TextField, InputAdornment, Button } from '@material-ui/core';
 import {
+  Person,
   EmailSharp,
   LockSharp,
-  Person,
-  Visibility,
   VisibilityOff,
+  Visibility,
 } from '@material-ui/icons';
+import { REGISTER_WELCOME, REGISTER_COPY, REGISTER_BTN } from '../constants';
 import {
   emailValidation,
   nameValidation,
@@ -21,7 +21,7 @@ const formErrorProps = {
   message: '',
 };
 
-export const Register: React.FC = () => {
+export const RegisterView: React.FC = () => {
   const [showPssd, setShowPssd] = useState(false);
   const [formData, handleFormChange] = useForm({
     name: '',
@@ -81,9 +81,8 @@ export const Register: React.FC = () => {
       console.log(formData);
     }
   };
-
   return (
-    <div className="auth-wrap">
+    <>
       <p className="auth-welcome">{REGISTER_WELCOME}</p>
       <p className="auth-copy">{REGISTER_COPY}</p>
 
@@ -184,8 +183,6 @@ export const Register: React.FC = () => {
           {REGISTER_BTN}
         </Button>
       </form>
-    </div>
+    </>
   );
 };
-
-export default Register;

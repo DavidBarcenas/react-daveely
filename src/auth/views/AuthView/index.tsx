@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import Login from '../components/Login';
-import Register from '../components/Register';
-import logoImg from '../../assets/img/logo.svg';
+import LoginView from '../LoginView';
+import RegisterView from '../RegisterView';
+import logoImg from '../../../assets/img/logo.svg';
 import {
   HAS_AN_ACCOUNT,
   LOG_IN,
   NOT_ACCOUNT,
   SIGN_IN,
   TITLE,
-} from '../constants';
-import './Auth.scss';
+} from '../../constants';
+import './index.scss';
 
-export const Auth: React.FC = () => {
+export const AuthView: React.FC = () => {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
@@ -20,7 +20,9 @@ export const Auth: React.FC = () => {
         <div className="auth-login-wrap">
           <img src={logoImg} alt="daveely" className="auth-logo" />
           <h1 className="auth-logo-text">{TITLE}</h1>
-          {showLogin ? <Login /> : <Register />}
+          <div className="auth-wrap">
+            {showLogin ? <LoginView /> : <RegisterView />}
+          </div>
           {showLogin ? (
             <p className="auth-login-register">
               {NOT_ACCOUNT}
@@ -39,4 +41,4 @@ export const Auth: React.FC = () => {
   );
 };
 
-export default Auth;
+export default AuthView;

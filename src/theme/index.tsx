@@ -1,5 +1,5 @@
 import React from 'react';
-import Auth from '../auth/views/Auth';
+import AuthView from '../auth/views/AuthView';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
@@ -20,7 +20,7 @@ const theme = createMuiTheme({
 function DaveelyTheme(): JSX.Element {
   return (
     <ThemeProvider theme={theme}>
-      <Auth />
+      <AuthView />
     </ThemeProvider>
   );
 }

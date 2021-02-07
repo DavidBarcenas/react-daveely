@@ -9,9 +9,9 @@ import {
   LOG_IN_WELCOME,
 } from '../constants';
 
-const Login: React.FC = () => {
+const LoginForm: React.FC = () => {
   return (
-    <div className="auth-wrap">
+    <>
       <p className="auth-welcome">{LOG_IN_WELCOME}</p>
       <p className="auth-copy">{LOG_IN_COPY}</p>
       <form className="auth-form">
@@ -54,8 +54,8 @@ const Login: React.FC = () => {
       </form>
 
       <SocialButtons />
-    </div>
+    </>
   );
 };
 
-export default Login;
+export default LoginForm;
