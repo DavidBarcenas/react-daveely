@@ -1,5 +1,7 @@
 import React from 'react';
-import AuthView from '../auth/views/AuthView';
+import { Provider } from 'react-redux';
+import { store } from '../store';
+import { DaveelyRouter } from '../router';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
@@ -19,9 +21,11 @@ const theme = createMuiTheme({
 
 function DaveelyTheme(): JSX.Element {
   return (
-    <ThemeProvider theme={theme}>
-      <AuthView />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <DaveelyRouter />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
