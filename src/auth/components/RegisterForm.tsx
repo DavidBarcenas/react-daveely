@@ -21,7 +21,7 @@ const formErrorProps = {
   message: '',
 };
 
-export const RegisterView: React.FC = () => {
+export const RegisterForm: React.FC = () => {
   const [showPssd, setShowPssd] = useState(false);
   const [formData, handleFormChange] = useForm({
     name: '',
@@ -186,3 +186,5 @@ export const RegisterView: React.FC = () => {
     </>
   );
 };
+
+export default RegisterForm;

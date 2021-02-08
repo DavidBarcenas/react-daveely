@@ -1,6 +1,6 @@
 export const TITLE = 'Daveely.';
 export const NOT_ACCOUNT = '¿No tienes una cuenta?';
-export const HAS_AN_ACCOUNT = '¿No tienes una cuenta?';
+export const HAS_AN_ACCOUNT = '¿Ya tienes una cuenta?';
 export const SIGN_IN = 'Registrate';
 export const LOG_IN = 'Ingresar';
 export const LOG_IN_WELCOME = '¡Bienvenido de nuevo!';
